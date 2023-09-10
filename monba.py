@@ -1,7 +1,6 @@
 class Monba:
 
-    def __init__(self, type_, especie, name=None, level=1):
-        self.type_ = type_
+    def __init__(self, especie, name=None, level=1):
         self.especie = especie
         self.level = level
         if name:
@@ -14,11 +13,26 @@ class Monba:
         return f'{self.especie} ({self.level})'
 
 
-    def atacar(self, pokemon):
+    def attack(self, pokemon):
         print(f'o {self.especie} atacou o {pokemon.especie}')
+    
+class MonbaAnimal(Monba):
+    kind = "Animal"
 
-my_monba = Monba('animal', 'Baran')
-solenvir_monba = Monba('planta', 'Fryrt')
-my_monba.atacar(solenvir_monba)
-print(f"{my_monba}")
-print(f"{solenvir_monba}")
+    def attack(self, pokemon):
+        print(f'{self.especie} scratched {pokemon.especie}')
+
+
+class MonbaAnimed(Monba):
+    kind = "Animed"
+
+    def attack(self, pokemon):
+        print(f'{self.especie} ??? {pokemon.especie}')
+
+class MonbaZombie(Monba):
+    kind =  "Zombie"
+    
+    def attack(self, pokemon):
+        print(f'{self.especie} bit {pokemon.especie}')
+
+m_teste = MonbaAnimal("animal")
