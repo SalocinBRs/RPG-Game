@@ -24,10 +24,10 @@ MONBAS = [
 class Person:
 
     def __init__(self, name=None, Monbas=[]):
-        if name:
-            self.name = name
-        else:
+        if name is None:
             self.name = random.choice(NAMES)
+        else:
+            self.name = name
 
         self.Monbas = Monbas
 
@@ -41,12 +41,33 @@ class Person:
         for monbinha in self.Monbas:
             print(monbinha)
 
+    def choice_monba(self):
+        for i, monba in enumerate(self.Monbas):
+            print(f"{i + 1} - {monba}")
+        while True:
+            try:
+                choice = int(input("Which: "))
+                chosen = self.Monbas[choice - 1]
+                return chosen
+            except:
+                print("escolha invalida")
+
+
+
+
+    def figth(self, enemy):
+        print(f"{self.name} battle with {enemy.name}")
+        
+        enemy.show_Monbas()
+
+        self.choice_monba()
+
 
 class Player(Person):
     kind = "Player"
 
     def __init__(self, name=None, Monbas=[]):
-        super().__init__(name=None,Monbas=Monbas)
+        super().__init__(name,Monbas=Monbas)
 
 
     def capture(self, Monba):
@@ -64,6 +85,5 @@ class Enemy(Person):
             i += 0
 
 
-        super().__init__(name=None,Monbas=Monbas)
-
+        super().__init__(name,Monbas=Monbas)
 
