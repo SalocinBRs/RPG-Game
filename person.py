@@ -67,8 +67,3 @@ class Enemy(Person):
         super().__init__(name=None,Monbas=Monbas)
 
 
-
-
-inimigo = Enemy()
-print(inimigo)
-inimigo.show_Monbas()

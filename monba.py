@@ -1,7 +1,6 @@
 import random
 
 
-
 class Monba:
 
     def __init__(self, especie, name=None, level=None):
@@ -44,3 +43,4 @@ class MonbaZombie(Monba):
 
     def attack(self, monba):
         print(f'{self.especie} bit {monba.especie}')
+
