@@ -29,11 +29,13 @@ class Person:
 
         self.Monbas = Monbas
 
+
     def __str__(self):
         return f'{self.name}'
 
+
     def show_Monbas(self):
-        print("Monbas disponíveis")
+        print("Avalible Monba")
         for monbinha in self.Monbas:
             print(monbinha)
     
@@ -42,36 +44,28 @@ class Player(Person):
     kind = "Player"
 
     def __init__(self, name=None, Monbas=[]):
-        
-        if Monbas:
-            self.Monbas = Monbas
-        else:
-            self.Monbas = Monbas.random.choice(MONBAS)
+        super().__init__(name=None,Monbas=Monbas)
 
 
     def capture(self, Monba):
         self.Monbas.append(Monba)
-        print(f"{self} capturou {Monba}")
+        print(f"{self} captured {Monba}!")
 
 
 class Enemy(Person):
     kind = "Enemy"
 
     def __init__(self, name=None, Monbas=[]):
-        if name:
-            self.name = name
-        else:
-            self.name = random.choice(NAMES)
-        if Monbas:
-            self.Monbas = Monbas
-        else:
-            self.Monbas = random.choice(MONBAS)
+        if not Monbas:
+            for i in range(random.randint(1, 6)):
+                Monbas.append(random.choice(MONBAS))
+       
+
+        super().__init__(name=None,Monbas=Monbas)
 
 
-eu = Player()
+
 
 inimigo = Enemy()
-
 print(inimigo)
-
-eu.show_Monbas()
+inimigo.show_Monbas()

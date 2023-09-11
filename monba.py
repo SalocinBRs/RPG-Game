@@ -4,9 +4,14 @@ import random
 
 class Monba:
 
-    def __init__(self, especie, name=None, level=random.randint(1,7)):
+    def __init__(self, especie, name=None, level=None):
         self.especie = especie
-        self.level = level
+
+        if level:
+            self.level = level
+        else:
+            self.level = random.randint(1,7)
+        
         if name:
             self.name = name
         else:
@@ -33,9 +38,10 @@ class MonbaAnimed(Monba):
     def attack(self, Monba):
         print(f'{self.especie} ??? {Monba.especie}')
 
+
 class MonbaZombie(Monba):
     kind =  "Zombie"
-    
+
     def attack(self, Monba):
         print(f'{self.especie} bit {Monba.especie}')
 
