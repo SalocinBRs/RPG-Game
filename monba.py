@@ -1,6 +1,10 @@
+import random
+
+
+
 class Monba:
 
-    def __init__(self, especie, name=None, level=1):
+    def __init__(self, especie, name=None, level=random.randint(1,7)):
         self.especie = especie
         self.level = level
         if name:
@@ -13,26 +17,25 @@ class Monba:
         return f'{self.especie} ({self.level})'
 
 
-    def attack(self, pokemon):
-        print(f'o {self.especie} atacou o {pokemon.especie}')
+    def attack(self, Monba):
+        print(f'o {self.especie} atacou o {Monba.especie}')
     
 class MonbaAnimal(Monba):
     kind = "Animal"
 
-    def attack(self, pokemon):
-        print(f'{self.especie} scratched {pokemon.especie}')
+    def attack(self, Monba):
+        print(f'{self.especie} scratched {Monba.especie}')
 
 
 class MonbaAnimed(Monba):
     kind = "Animed"
 
-    def attack(self, pokemon):
-        print(f'{self.especie} ??? {pokemon.especie}')
+    def attack(self, Monba):
+        print(f'{self.especie} ??? {Monba.especie}')
 
 class MonbaZombie(Monba):
     kind =  "Zombie"
     
-    def attack(self, pokemon):
-        print(f'{self.especie} bit {pokemon.especie}')
+    def attack(self, Monba):
+        print(f'{self.especie} bit {Monba.especie}')
 
-m_teste = MonbaAnimal("animal")

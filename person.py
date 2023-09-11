@@ -1,11 +1,31 @@
-import monba
+import monba, random
+
+
+NAMES = [
+    "Alice", "Bob", "Carlos", "Daniela", "Eduardo", 
+    "Fernanda", "Gabriel", "Heloísa", "Isabel", "José",
+    "Laura", "Miguel", "Natália", "Oliver", "Patrícia",
+    "Rafael", "Sofia", "Thiago", "Valentina", "William",
+    "Xavier", "Yasmin", "Zacarias", "Amanda", "Bruno",
+    "Clara", "Diego", "Elisa", "Felipe", "Giovanna"
+]
+
+MONBAS = [
+    monba.MonbaAnimal("Pikaro"),
+    monba.MonbaAnimed("Squirtleto"),
+    monba.MonbaAnimal("Charlanda"),
+    monba.MonbaAnimed("Jigglypuffo"),
+    monba.MonbaAnimal("Bulbazaur"),
+]
+
+
 class Person:
 
     def __init__(self, name=None, Monbas=[]):
         if name:
             self.name = name
         else:
-            self.name = "Anonymous"
+            self.name = random.choice(NAMES)
 
         self.Monbas = Monbas
 
@@ -18,24 +38,40 @@ class Person:
             print(monbinha)
     
 
-class Player(Person,):
+class Player(Person):
     kind = "Player"
 
-    def capture(self, monba):
-        self.Monbas.append(monba)
-        print(f"{self} capturou {monba}")
+    def __init__(self, name=None, Monbas=[]):
+        
+        if Monbas:
+            self.Monbas = Monbas
+        else:
+            self.Monbas = Monbas.random.choice(MONBAS)
+
+
+    def capture(self, Monba):
+        self.Monbas.append(Monba)
+        print(f"{self} capturou {Monba}")
 
 
 class Enemy(Person):
     kind = "Enemy"
 
+    def __init__(self, name=None, Monbas=[]):
+        if name:
+            self.name = name
+        else:
+            self.name = random.choice(NAMES)
+        if Monbas:
+            self.Monbas = Monbas
+        else:
+            self.Monbas = random.choice(MONBAS)
 
-my_monba1 = monba.MonbaAnimal("animal")
-my_monba2 = monba.MonbaZombie("zombie")
-monba
 
+eu = Player()
 
-eu = Player(name="Protagonista",Monbas=[my_monba1, my_monba2])
-eu.capture(monba.MonbaAnimal('galileu'))
+inimigo = Enemy()
+
+print(inimigo)
 
 eu.show_Monbas()
