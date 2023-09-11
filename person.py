@@ -1,4 +1,6 @@
-import monba, random
+import random
+import monba
+
 
 
 NAMES = [
@@ -38,7 +40,7 @@ class Person:
         print("Avalible Monba")
         for monbinha in self.Monbas:
             print(monbinha)
-    
+
 
 class Player(Person):
     kind = "Player"
@@ -59,7 +61,8 @@ class Enemy(Person):
         if not Monbas:
             for i in range(random.randint(1, 6)):
                 Monbas.append(random.choice(MONBAS))
-       
+            i += 0
+
 
         super().__init__(name=None,Monbas=Monbas)
 
