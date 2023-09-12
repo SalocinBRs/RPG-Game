@@ -2,7 +2,7 @@ from person import *
 from monba import *
 
 def choice_first_monba(player):
-    print(f"{player.name} choice your fisrt Monba!")
+    print(f"{player.name} choice your first Monba!")
     first = monba.MonbaAnimal("Pikaro", level=3)
     second = monba.MonbaAnimed("Squirtleto", level=3)
     third = monba.MonbaAnimal("Bulbazaur", level=3)
@@ -15,19 +15,22 @@ def choice_first_monba(player):
             resposta = int(input("choice one: "))
             if resposta == 1:
                 player.capture(first)
+                print("~~" * 15)
                 break
             elif resposta == 2:
                 player.capture(second)
+                print("~~" * 15)
                 break
             elif resposta == 3:
                 player.capture(third)
+                print("~~" * 15)
                 break
             else:
                 print("wrong answer")
         except ValueError:
             print("wrong answer")
 
-eu = Player(name="nicolas")
+eu = Player(name="Nicolas")
 choice_first_monba(eu)
 
 
