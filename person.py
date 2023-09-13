@@ -23,21 +23,21 @@ MONBAS = [
 
 class Person:
 
-    def __init__(self, name=None, Monbas=[]):
+    def __init__(self, name=None, Monbas=[], money=100):
         if name is None:
             self.name = random.choice(NAMES)
         else:
             self.name = name
 
         self.Monbas = Monbas
-
+        self.money = money
 
     def __str__(self):
         return f'{self.name}'
 
 
     def show_Monbas(self):
-        print("Avalible Monba")
+        print(f"{self.name} Avalible Monba")
         for monbinha in self.Monbas:
             print(monbinha)
 
@@ -49,21 +49,39 @@ class Person:
             try:
                 choice = int(input("Which: "))
                 chosen = self.Monbas[choice - 1]
+                print(f"I conjure you!!! {(monba.name).upper()}")
                 return chosen
             except:
                 print("escolha invalida")
 
     def figth(self, enemy):
         print(f"{self.name} battle with {enemy.name}")
+        print("~~" * 20)
         
         enemy.show_Monbas()
         my_monba = self.choice_monba()
         enemy_monba = enemy.choice_monba()
         
         while True:
-            my_monba.attack(enemy_monba)
-            enemy_monba.attack(my_monba)
-            break
+            victory = my_monba.attack(enemy_monba)
+            if victory:
+                print(f"{self.name} ganhou")
+                self.earn_money(20)
+                break
+            enemy_victory = enemy_monba.attack(my_monba)
+            if enemy_victory:
+                print(f"{enemy.name} ganhou")
+                break
+
+
+    def show_money(self):
+        print(f"{self.name} have {self.money} money")
+    
+
+    def earn_money(self, money):
+        self.money += money
+        print(f"{self.name} earn {money} money")
+
 
 
 class Player(Person):

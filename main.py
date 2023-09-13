@@ -3,7 +3,7 @@ from monba import *
 
 def choice_first_monba(player):
     print(f"{player.name} choice your first Monba!")
-    first = monba.MonbaAnimal("Pikaro", level=3)
+    first = monba.MonbaAnimal("Pikaro", level=30)
     second = monba.MonbaAnimed("Squirtleto", level=3)
     third = monba.MonbaAnimal("Bulbazaur", level=3)
 
@@ -32,6 +32,6 @@ def choice_first_monba(player):
 
 eu = Player(name="Nicolas")
 choice_first_monba(eu)
-
+eu.show_money()
 inimigo = Enemy(name="Solenvir", Monbas=[monba.MonbaAnimed("Jigglypuffo"),monba.MonbaAnimed("Squirtleto")])
 eu.figth(inimigo)
