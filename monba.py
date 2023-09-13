@@ -16,6 +16,8 @@ class Monba:
         else:
             self.name = especie
 
+        self.power = self.level * 5
+        self.life = self.level * 10
 
     def __str__(self):
         return f'{self.especie} ({self.level})'
@@ -25,21 +27,18 @@ class Monba:
         print(f'o {self.especie} atacou o {monba.especie}')
 
 class MonbaAnimal(Monba):
-    kind = "Animal"
 
     def attack(self, monba):
         print(f'{self.especie} scratched {monba.especie}')
 
 
 class MonbaAnimed(Monba):
-    kind = "Animed"
 
     def attack(self, monba):
         print(f'{self.especie} ??? {monba.especie}')
 
 
 class MonbaZombie(Monba):
-    kind =  "Zombie"
 
     def attack(self, monba):
         print(f'{self.especie} bit {monba.especie}')

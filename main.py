@@ -33,7 +33,5 @@ def choice_first_monba(player):
 eu = Player(name="Nicolas")
 choice_first_monba(eu)
 
-
-inimigo = Enemy(name="Solenvir", Monbas=[monba.MonbaAnimed("Jigglypuffo")])
-
+inimigo = Enemy(name="Solenvir", Monbas=[monba.MonbaAnimed("Jigglypuffo"),monba.MonbaAnimed("Squirtleto")])
 eu.figth(inimigo)

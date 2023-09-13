@@ -41,6 +41,7 @@ class Person:
         for monbinha in self.Monbas:
             print(monbinha)
 
+    
     def choice_monba(self):
         for i, monba in enumerate(self.Monbas):
             print(f"{i + 1} - {monba}")
@@ -52,15 +53,17 @@ class Person:
             except:
                 print("escolha invalida")
 
-
-
-
     def figth(self, enemy):
         print(f"{self.name} battle with {enemy.name}")
         
         enemy.show_Monbas()
-
-        self.choice_monba()
+        my_monba = self.choice_monba()
+        enemy_monba = enemy.choice_monba()
+        
+        while True:
+            my_monba.attack(enemy_monba)
+            enemy_monba.attack(my_monba)
+            break
 
 
 class Player(Person):
@@ -74,6 +77,8 @@ class Player(Person):
         self.Monbas.append(Monba)
         print(f"{self} captured {Monba}!")
 
+    
+
 
 class Enemy(Person):
     kind = "Enemy"
@@ -84,6 +89,8 @@ class Enemy(Person):
                 Monbas.append(random.choice(MONBAS))
             i += 0
 
-
         super().__init__(name,Monbas=Monbas)
-
+    
+    def choice_monba(self):
+        chosen = random.choice(self.Monbas)
+        return chosen
