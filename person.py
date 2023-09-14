@@ -55,7 +55,7 @@ class Person:
                 print("escolha invalida")
 
     def figth(self, enemy):
-        print(f"{self.name} batalha com{enemy.name}")
+        print(f"{self.name} batalha com{ enemy.name}")
         print("~~" * 20)
         
         enemy.show_Monbas()
@@ -71,6 +71,7 @@ class Person:
             enemy_victory = enemy_monba.attack(my_monba)
             if enemy_victory:
                 print(f"{enemy.name} ganhou")
+                del my_monba
                 break
 
 
@@ -118,12 +119,12 @@ class Enemy(Person):
     kind = "Enemy"
 
     def __init__(self, name=None, Monbas=[]):
+        super().__init__(name,Monbas=Monbas)
         if not Monbas:
             for i in range(random.randint(1, 6)):
                 Monbas.append(random.choice(MONBAS))
             i += 0
 
-        super().__init__(name,Monbas=Monbas)
     
     def choice_monba(self):
         chosen = random.choice(self.Monbas)

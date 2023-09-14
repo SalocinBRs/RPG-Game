@@ -40,17 +40,34 @@ def choice_first_monba(player):
 
 
 #TELA DE INICIO
+'''
 name = historia()
+'''
+
+name = 'Nicolas'
 eu = Player(name=name)
 
 choice_first_monba(eu)
 
 rival = Enemy("Solenvir", Monbas=[monba.MonbaAnimed("Squirtleto", level=3)])
+eu.figth(rival)
 
-eu.show_money()
+while True:
+    print("~~" * 20)
+    print("O que deseja fazer?")
+    print("1 - Explorar mapa")
+    print("2 = Lutar com um inimigo")
+    print("9 - Sair")
 
-eu.explore()
-'''
-inimigo = Enemy(name="Solenvir", Monbas=[monba.MonbaAnimed("Jigglypuffo"),monba.MonbaAnimed("Squirtleto")])
-eu.figth(inimigo)
-'''
+    try:
+        resposta = int(input(""))
+    except ValueError:
+        print("Resposta invalida")
+
+    if resposta == 1:
+        eu.explore()
+    if resposta == 2:
+        inimigo = Enemy(name=None)
+        eu.figth(inimigo)
+    if resposta == 9:
+        break

@@ -3,7 +3,9 @@ from time import sleep
 def historia():
     print("inicializando...")
     sleep(1)
+    print("~~" * 20)
     print("Carregamento completo!\nBEM VINDO AO <ERROR>")
+    print("~~" * 20)
     print("Você acorda")
     print("O céu é escuro, não existem estrelas ou qualquer sutil brilho lunar")
     sleep(1)
