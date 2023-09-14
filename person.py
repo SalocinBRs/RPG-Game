@@ -1,6 +1,10 @@
 import random
+
+
 import monba
 
+
+from pickle import dump, load
 
 
 NAMES = [
@@ -40,6 +44,7 @@ class Person:
         print(f"Monbas de {self.name}")
         for monbinha in self.Monbas:
             print(monbinha)
+        print("")
 
     
     def choice_monba(self):
@@ -55,10 +60,11 @@ class Person:
                 print("escolha invalida")
 
     def figth(self, enemy):
-        print(f"{self.name} batalha com{ enemy.name}")
+        print(f"{self.name} batalha com { enemy.name}")
         print("~~" * 20)
         
         enemy.show_Monbas()
+        print("Seus Monbas")
         my_monba = self.choice_monba()
         enemy_monba = enemy.choice_monba()
         
@@ -84,7 +90,6 @@ class Person:
         print(f"{self.name} ganhou {money} dinheiros")
 
 
-
 class Player(Person):
     kind = "Player"
 
@@ -102,7 +107,7 @@ class Player(Person):
         chance = random.random()
         if chance >= 0.7:
             print(f"{monba} apareceu")
-            choice = input("Selar? [y/n] ")
+            choice = input("Selar? [s/n] ")
             if choice == 's':
                 if random.random() >= 0.8:
                     self.capture(monba)
@@ -118,12 +123,15 @@ class Player(Person):
 class Enemy(Person):
     kind = "Enemy"
 
-    def __init__(self, name=None, Monbas=[]):
-        super().__init__(name,Monbas=Monbas)
+    def __init__(self, name=None, Monbas=None):
         if not Monbas:
+            monbas_aleatorios = list()
             for i in range(random.randint(1, 6)):
-                Monbas.append(random.choice(MONBAS))
+                monbas_aleatorios.append(random.choice(MONBAS))
             i += 0
+            super().__init__(name, Monbas=monbas_aleatorios)
+        else:
+            super().__init__(name,Monbas=Monbas)
 
     
     def choice_monba(self):

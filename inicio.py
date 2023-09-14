@@ -27,7 +27,7 @@ def historia():
     print("<Mulher desconhecida> \nNós encontramos você nas margens de um rio, então te trouxemos até aqui.")
     print("<Mulher desconhecida> \nMeu nome é Solenvir e esse senhor do nosso lado de chama Carot.")
     sleep(3)
-    name = input("Qual seria o seu nome?")
+    name = input("Qual seria o seu nome? ")
     print('~~' * 20)
     print(f"<Carot> \n{name} O tempo é curto, lamento em dizer mas você terá que fazer sua escolha.")
     sleep(1)
