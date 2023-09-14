@@ -37,7 +37,7 @@ class Person:
 
 
     def show_Monbas(self):
-        print(f"{self.name} Avalible Monba")
+        print(f"Monbas de {self.name}")
         for monbinha in self.Monbas:
             print(monbinha)
 
@@ -47,15 +47,15 @@ class Person:
             print(f"{i + 1} - {monba}")
         while True:
             try:
-                choice = int(input("Which: "))
+                choice = int(input("Escolha: "))
                 chosen = self.Monbas[choice - 1]
-                print(f"I conjure you!!! {(monba.name).upper()}")
+                print(f"eu conjuro voce!!! {(monba.name).upper()}")
                 return chosen
             except:
                 print("escolha invalida")
 
     def figth(self, enemy):
-        print(f"{self.name} battle with {enemy.name}")
+        print(f"{self.name} batalha com{enemy.name}")
         print("~~" * 20)
         
         enemy.show_Monbas()
@@ -75,12 +75,12 @@ class Person:
 
 
     def show_money(self):
-        print(f"{self.name} have {self.money} money")
+        print(f"{self.name} tem {self.money} dinheiros")
     
 
     def earn_money(self, money):
         self.money += money
-        print(f"{self.name} earn {money} money")
+        print(f"{self.name} ganhou {money} dinheiros")
 
 
 
@@ -93,7 +93,23 @@ class Player(Person):
 
     def capture(self, Monba):
         self.Monbas.append(Monba)
-        print(f"{self} captured {Monba}!")
+        print(f"{self} selou {Monba}!")
+
+    
+    def explore(self):
+        monba = random.choice(MONBAS)
+        chance = random.random()
+        if chance >= 0.7:
+            print(f"{monba} apareceu")
+            choice = input("Selar? [y/n] ")
+            if choice == 's':
+                if random.random() >= 0.8:
+                    self.capture(monba)
+                else:
+                    print("Monba Fugiu")
+        else:
+            print("Nada ocorreu")
+        print()
 
     
 

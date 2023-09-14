@@ -1,18 +1,26 @@
 from person import *
+
+
 from monba import *
 
+
+import time
+
+
+from inicio import historia
+
+
 def choice_first_monba(player):
-    print(f"{player.name} choice your first Monba!")
+    print(f"{player.name} Essses são os 3 primeiros Monbas, escolha um para ser seu!")
     first = monba.MonbaAnimal("Pikaro", level=30)
     second = monba.MonbaAnimed("Squirtleto", level=3)
     third = monba.MonbaAnimal("Bulbazaur", level=3)
 
-    print("you have 3 choices")
     print(f"1 - {first}\n2 - {second}\n3 - {third}")
 
     while True:
         try:
-            resposta = int(input("choice one: "))
+            resposta = int(input("O escolhido: "))
             if resposta == 1:
                 player.capture(first)
                 print("~~" * 15)
@@ -26,12 +34,23 @@ def choice_first_monba(player):
                 print("~~" * 15)
                 break
             else:
-                print("wrong answer")
+                print("resposta incorreta")
         except ValueError:
-            print("wrong answer")
+            print("resposta incorreta")
 
-eu = Player(name="Nicolas")
+
+#TELA DE INICIO
+name = historia()
+eu = Player(name=name)
+
 choice_first_monba(eu)
+
+rival = Enemy("Solenvir", Monbas=[monba.MonbaAnimed("Squirtleto", level=3)])
+
 eu.show_money()
+
+eu.explore()
+'''
 inimigo = Enemy(name="Solenvir", Monbas=[monba.MonbaAnimed("Jigglypuffo"),monba.MonbaAnimed("Squirtleto")])
 eu.figth(inimigo)
+'''
