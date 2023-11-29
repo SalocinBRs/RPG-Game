@@ -1,13 +1,9 @@
 from person import *
-
-
 from monba import *
+from inicio import historia
 
 
 import time
-
-
-from inicio import historia
 
 
 def salvar_jogo(eu):
@@ -21,14 +17,15 @@ def salvar_jogo(eu):
 
 
 def carregar_jogo():
-        try:
-            with open('database.db', 'rb') as arquivo:
-                eu = load(arquivo)
-                print("Jogo Carregado")
-                return eu
-        except Exception as error:
-            print("Algum erro ocorreu")
-            print(error) 
+    '''Consulta o banco de dados'''
+    try:
+        with open('database.db', 'rb') as arquivo:
+            eu = load(arquivo)
+            print("Jogo Carregado")
+            return eu
+    except Exception as error:
+        print("Algum erro ocorreu")
+        print(error)
 
 
 def choice_first_monba(player):
